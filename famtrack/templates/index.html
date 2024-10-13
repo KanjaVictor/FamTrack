@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>Home</h1>
-</body>
-
-</html>
+{% block content %}
+<h1>Membership Administration Application</h1>
+<p>Welcome to Famtrack</p>
+<h2>Family Overview</h2>
+<p>This is the dashboard:</p>
+<ul>
+    <li><strong>Total families:</strong> {{num_families}}</li>
+    <li><strong>Total members:</strong> {{num_members}}</li>
+</ul>
+{% endblock %}
