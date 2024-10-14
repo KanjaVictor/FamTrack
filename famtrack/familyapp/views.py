@@ -25,5 +25,3 @@ def about(request):
 #Generic class-based view - it queries the db to get all records for the specified models
 class FamilyMemberListView(generic.ListView):
     model = FamilyMember
-    template_name = '/family/familymember_list.html'
-    context_object_name ='familymembers'
