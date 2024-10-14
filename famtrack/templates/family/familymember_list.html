@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Family Member</h1>
+{% if familymember_list %}
+<ul>
+    {% for FamilyMember in familymember_list %}
+    <li><a href="{{familymember.get_absolute_url}}">{{familymember.family_id}}</a>
+        ({{familymember.first_name}}) ({{familymember.last_name}})
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>There are no families in the database.</p>
+{% endif %}
+{% endblock %}

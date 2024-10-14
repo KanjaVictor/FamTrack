@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Family, FamilyMember
+from django.views import generic
 
 # Create your views here.
 def index(request):
@@ -20,3 +21,9 @@ def index(request):
 
 def about(request):
     return render(request, 'about.html')
+
+#Generic class-based view - it queries the db to get all records for the specified models
+class FamilyMemberListView(generic.ListView):
+    model = FamilyMember
+    template_name = '/family/familymember_list.html'
+    context_object_name ='familymembers'

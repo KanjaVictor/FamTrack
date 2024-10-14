@@ -33,3 +33,6 @@ class FamilyMember(models.Model):
 
     def __str__(self):
         return self.first_name
+
+    def get_absolute_url(self):
+        return reverse('familymember-detail', args=[str(self.id)])
