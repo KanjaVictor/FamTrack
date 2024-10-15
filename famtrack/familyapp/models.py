@@ -13,6 +13,9 @@ class Family(models.Model):
     def __str__(self):
         return self.family_name
 
+    def get_absolute_url(self):
+        return reverse('family-detail',args=[str(self.id)])
+
 class FamilyMember(models.Model):
     PARENT = 'PR'
     SON = 'SN'

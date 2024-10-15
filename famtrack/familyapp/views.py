@@ -23,5 +23,17 @@ def about(request):
     return render(request, 'about.html')
 
 #Generic class-based view - it queries the db to get all records for the specified models
-class FamilyMemberListView(generic.ListView):
+class FamilyListView(generic.ListView):
+    model = Family
+    context_object_name ='family_list'
+    ordering = ['id']
+ 
+class FamilyMemberDetailView(generic.DetailView):
     model = FamilyMember
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        family_id = self.object.id
+        context['familymembers'] = FamilyMember.objects.filter(family_id=family_id)
+        context['family'] = Family.objects.get(id=family_id)
+        return context

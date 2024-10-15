@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Family: {{ familymember.family_name }}</h1>
+{% for member in familymembers %}
+<p><strong>First Name: </strong><a href="">{{ member.first_name }}</a></p>
+<p><strong>Last Name: </strong>{{ member.last_name }}</p>
+<p><strong>Date of Birth: </strong>{{ member.date_of_birth }}</p>
+<p><strong>Type of Member: </strong>{{ member.get_type_of_member_display }}</p>
+{% endfor %}
+{% endblock %}
